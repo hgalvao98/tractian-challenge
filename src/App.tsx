@@ -1,10 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import './App.css'
+import reactLogo from './assets/react.svg'
+import { getAsset } from './utils/store/actions'
+import viteLogo from '/vite.svg'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAsset(1))
+  })
 
   return (
     <div className="App">
