@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './App.css'
 import reactLogo from './assets/react.svg'
-import { getAsset } from './utils/store/actions'
+import { getAsset } from './modules/store/assets/actions'
+import { getUnit } from './modules/store/units/actions'
+import { getUser } from './modules/store/users/actions'
+import { getWork } from './modules/store/workorders/actions'
 import viteLogo from '/vite.svg'
 
 function App() {
@@ -12,7 +15,10 @@ function App() {
 
   useEffect(() => {
     dispatch(getAsset(1))
-  })
+    dispatch(getUnit(1))
+    dispatch(getUser(1))
+    dispatch(getWork(1))
+  }, [])
 
   return (
     <div className="App">
