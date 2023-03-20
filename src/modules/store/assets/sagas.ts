@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { useGetData } from '../../hooks'
-import { actionType } from '../../types/types'
+import { useGetData } from '../../../hooks'
+import { actionType } from '../../../types'
 
 function* getAllData() {
     try {
