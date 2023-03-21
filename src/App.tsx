@@ -1,49 +1,46 @@
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import './App.css'
-import reactLogo from './assets/react.svg'
-import { getAsset } from './modules/store/assets/actions'
-import { getUnit } from './modules/store/units/actions'
-import { getUser } from './modules/store/users/actions'
-import { getWork } from './modules/store/workorders/actions'
-import viteLogo from '/vite.svg'
+import { HeatMapOutlined } from "@ant-design/icons";
+import { Layout, Menu } from "antd";
+import { useState } from "react";
+import './constants/pages/Home/styles.scss';
+import RootRoutes from "./routes";
+import { menuItems } from "./utils/menuItems";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
 
-  const dispatch = useDispatch()
+  const [menuItemActive, setMenuItemActive] = useState('')
+  const { Content, Sider } = Layout;
 
-  useEffect(() => {
-    dispatch(getAsset(1))
-    dispatch(getUnit(1))
-    dispatch(getUser(1))
-    dispatch(getWork(1))
-  }, [])
+  const handleMenuChange = (e) => {
+    setMenuItemActive(e.key);
+    let url
+    if (e.key) {
+      url = e?.key?.toLowerCase();
+      window.location.replace(url)
+    } else {
+      window.location.replace('/')
+    }
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <Layout className='home' style={{ height: '100%' }}>
+      <Sider
+        className='sider'
+        breakpoint="lg"
+        collapsedWidth="0"
+      >
+        <div onClick={() => handleMenuChange('')} className="home__sider__header">
+          <HeatMapOutlined />
+          <h3>The Test Company</h3>
+        </div>
+        <Menu
+          onClick={handleMenuChange}
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={['4']}
+          items={menuItems}
+        />
+      </Sider>
+      <RootRoutes />
+    </Layout >
+  );
 }
-
-export default App
