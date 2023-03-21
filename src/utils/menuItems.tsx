@@ -4,22 +4,25 @@ import { MenuItem } from '../types';
 export const menuItems: MenuItem[] = [
     {
         label: 'Assets',
+        key: 'Assets',
         icon: <SettingOutlined />,
-        onClick: () => { },
     },
     {
         label: 'Units',
+        key: 'Units',
+
         icon: <AppstoreOutlined />,
-        onClick: () => { }
     },
     {
         label: 'Workorders',
+        key: 'Workorders',
+
         icon: <UnorderedListOutlined />,
-        onClick: () => { }
     },
     {
         label: 'Users',
+        key: 'Users',
+
         icon: <UserOutlined />,
-        onClick: () => { }
     }
 ]

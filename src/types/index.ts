@@ -89,7 +89,7 @@ export type actionType = {
 
 export type MenuItem = {
     label: string,
+    key: string,
     icon: JSX.Element,
-    onClick: () => void,
 }
 

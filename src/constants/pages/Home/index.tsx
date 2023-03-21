@@ -1,46 +1,30 @@
-import { Layout, Menu, theme } from 'antd';
+import { Layout, theme } from 'antd';
+import { Content } from 'antd/es/layout/layout';
 import React from 'react';
 import { AssetsStatistics } from '../../../components/AssetsStatistics';
 import { GreetingModal } from '../../../components/GreetingModal';
 import { UnitsHome } from '../../../components/UnitsHome';
-import { menuItems } from '../../../utils/menuItems';
 import './styles.scss';
 
 
 const Home: React.FC = () => {
-    const { Content, Sider } = Layout;
 
     const {
         token: { colorBgContainer },
     } = theme.useToken();
 
     return (
-        <Layout className='home' style={{ height: '100%' }}>
-            <Sider
-                breakpoint="lg"
-                collapsedWidth="0"
-            >
-                <div onClick={() => { }} className="home__sider__header">
-                    <h1>The Test Company</h1>
+        <Layout className='home__content'>
+            <h1 className='home__mobile__header'>The Test Company</h1>
+            <Content className='home__greetings'>
+                <GreetingModal colorBgContainer={colorBgContainer} />
+                <div className='home__secondStep'>
+                    <AssetsStatistics colorBgContainer={colorBgContainer} />
+                    <UnitsHome colorBgContainer={colorBgContainer} />
                 </div>
-                <Menu
-                    theme="dark"
-                    mode="inline"
-                    defaultSelectedKeys={['4']}
-                    items={menuItems}
-                />
-            </Sider>
-            <Layout className='home__content'>
-                <Content className='home__greetings'>
-                    <GreetingModal colorBgContainer={colorBgContainer} />
-                    <div className='home__secondStep'>
-                        <AssetsStatistics colorBgContainer={colorBgContainer} />
-                        <UnitsHome colorBgContainer={colorBgContainer} />
-                    </div>
-                </Content>
-            </Layout>
-        </Layout >
-    );
+            </Content>
+        </Layout>
+    )
 };
 
 

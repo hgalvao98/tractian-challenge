@@ -1,3 +1,4 @@
+import { DeploymentUnitOutlined } from '@ant-design/icons'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useShallowEqualSelector } from "../../hooks"
@@ -19,15 +20,15 @@ export const UnitsHome = ({ colorBgContainer }) => {
     }, [])
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', width: '40%' }}>
+        <div className='home__units'>
             <h1>Units</h1>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {units?.map((unit: Unit) => {
                     return (
-                        <div key={unit.id} style={{ padding: 24, display: 'flex', flexDirection: 'column', alignItems: 'center', borderRadius: '20px', background: colorBgContainer, height: '50%' }}>
-                            <p>
-                                {unit?.name}
-                            </p>
+                        <div key={unit.id} className='home__units__card'>
+                            <h3>
+                                <DeploymentUnitOutlined /> {unit?.name}
+                            </h3>
                         </div>
                     )
                 })}
