@@ -82,7 +82,14 @@ export interface Checklist {
     task: string;
 }
 
-export type actionType {
+export type actionType = {
     id: number,
     type: string
 }
+
+export type MenuItem = {
+    label: string,
+    icon: JSX.Element,
+    onClick: () => void,
+}
+

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import './App.css'
+import './App.scss'
 import reactLogo from './assets/react.svg'
 import { getAsset } from './modules/store/assets/actions'
 import { getUnit } from './modules/store/units/actions'
