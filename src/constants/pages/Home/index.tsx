@@ -31,9 +31,9 @@ const Home: React.FC = () => {
                 />
             </Sider>
             <Layout className='home__content'>
-                <Content className='home__greetings' style={{ margin: '24px 16px 0' }}>
+                <Content className='home__greetings'>
                     <GreetingModal colorBgContainer={colorBgContainer} />
-                    <div style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
+                    <div className='home__secondStep'>
                         <AssetsStatistics colorBgContainer={colorBgContainer} />
                         <UnitsHome colorBgContainer={colorBgContainer} />
                     </div>

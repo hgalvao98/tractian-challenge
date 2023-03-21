@@ -68,13 +68,16 @@ export const GreetingModal = ({ colorBgContainer }) => {
         <div>
             <h1>Company's Progress</h1>
             <div className='home__greetings__main' style={{ padding: 24, minHeight: 'auto', width: '100%', borderRadius: '20px', background: colorBgContainer }}>
-                <div style={{ width: '50%' }}>
+                <div>
                     <h3>Hi, User1!</h3>
                     <h1>You have {ordersCompleted?.length} workorder(s) completed and {ordersInProgress?.length} workorder(s) in progress!</h1>
                     <Button>SEE WORKORDERS <RightOutlined /></Button>
 
                 </div>
-                <HighchartsReact highcharts={Highcharts} options={chart1} />
+                <div className='home__greetings__main__chart'>
+                    <HighchartsReact highcharts={Highcharts} options={chart1} />
+
+                </div>
             </div>
         </div>
     )

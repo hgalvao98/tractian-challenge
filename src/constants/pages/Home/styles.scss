@@ -3,12 +3,16 @@
     height: 100%;
 
     &__content {
-        margin: 24px 150px 0px;
+        margin: 24px 100px 0px;
+    }
 
+    @media (max-width: 870px) {
+        &__content {
+            margin: 24px 10px 0px;
+        }
     }
 
     &__greetings {
-
         &__main {
             display: flex;
             flex-direction: row;
@@ -24,8 +28,28 @@
                 font-size: 35px;
                 margin-bottom: 140px;
             }
-        }
 
+            @media (max-width: 972px) {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            @media(max-width: 878px) {
+                &__chart {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__secondStep {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        @media(max-width: 878px) {
+            flex-direction: column;
+        }
     }
 
     &__sider__header {
