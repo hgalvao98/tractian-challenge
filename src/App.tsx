@@ -12,9 +12,13 @@ export default function App() {
 
   const handleMenuChange = (e) => {
     setMenuItemActive(e.key);
-    let url = e.key ? e?.key?.toLowerCase() : '';
-    console.log(url)
-    window.location.replace(url)
+    let url
+    if (e.key) {
+      url = e?.key?.toLowerCase();
+      window.location.replace(url)
+    } else {
+      window.location.replace('/')
+    }
   };
 
   return (
@@ -24,7 +28,7 @@ export default function App() {
         breakpoint="lg"
         collapsedWidth="0"
       >
-        <div onClick={() => setMenuItemActive('')} className="home__sider__header">
+        <div onClick={() => handleMenuChange('')} className="home__sider__header">
           <HeatMapOutlined />
           <h3>The Test Company</h3>
         </div>
