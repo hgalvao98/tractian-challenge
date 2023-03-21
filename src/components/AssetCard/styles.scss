@@ -1,0 +1,56 @@
+.asset-card {
+    background-color: #fff;
+    max-height: 400px;
+    max-width: 300px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 2px;
+
+    h3,
+    h1 {
+        margin: 0;
+    }
+
+    &__info {
+        margin-top: 10px;
+    }
+
+    &__image {
+        border-radius: 5px;
+        max-height: 200px;
+        min-width: 270px;
+        object-fit: cover;
+
+        @media (max-width: 491px) {
+            min-width: auto;
+        }
+    }
+
+    &__health {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+
+    }
+
+    &__status {
+        font-size: 20px;
+
+        &--inDowntime {
+            color: #F7C800;
+        }
+
+        &--inOperation {
+            color: #52C41A;
+        }
+
+        &--inAlert {
+            color: #FF4D4F;
+        }
+    }
+}

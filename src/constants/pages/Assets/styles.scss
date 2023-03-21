@@ -1,0 +1,11 @@
+.assets {
+    &__content {
+        margin: 24px 100px 0px;
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 10px;
+    }
+}

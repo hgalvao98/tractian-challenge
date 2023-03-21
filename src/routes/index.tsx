@@ -1,8 +1,7 @@
 import {
     BrowserRouter, Route, Routes
 } from "react-router-dom";
-import { Assets } from "../constants/pages/Assets";
-
+import Assets from "../constants/pages/Assets";
 import Home from "../constants/pages/Home";
 
 const RootRoutes = () => {

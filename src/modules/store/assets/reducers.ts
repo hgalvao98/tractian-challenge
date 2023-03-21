@@ -13,6 +13,7 @@ import {
 
 const initialState = {
     data: [],
+    allAssetsData: [],
     status: '',
     message: '',
     assetData: [],
@@ -29,7 +30,7 @@ export default (state = initialState, action: PayloadAction) => {
         case FETCH_ASSETS_REQUEST:
             return { ...state, status: 'Running' };
         case FETCH_ASSETS_SUCCESS:
-            return { ...state, data: action.payload, status: 'Success' };
+            return { ...state, allAssetsData: action.payload, status: 'Success' };
         case FETCH_ASSETS_FAIL:
             return { ...state, message: action.payload, status: 'Fail' }
         case FETCH_ASSET_REQUEST:

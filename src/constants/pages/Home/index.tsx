@@ -1,13 +1,12 @@
 import { Layout, theme } from 'antd';
 import { Content } from 'antd/es/layout/layout';
-import React from 'react';
 import { AssetsStatistics } from '../../../components/AssetsStatistics';
 import { GreetingModal } from '../../../components/GreetingModal';
 import { UnitsHome } from '../../../components/UnitsHome';
 import './styles.scss';
 
 
-const Home: React.FC = () => {
+const Home = () => {
 
     const {
         token: { colorBgContainer },
