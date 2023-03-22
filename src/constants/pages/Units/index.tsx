@@ -36,6 +36,7 @@ export const Units = () => {
   return (
     <div className="unit">
       <div className="unit__search">
+        <h1>Search:</h1>
         <Search placeholder="Units" allowClear onSearch={onSearch} />
       </div>
       <div className="units-card">

@@ -43,8 +43,10 @@ const Assets = () => {
 
   return (
     <Layout className="assets__content">
-      <Search placeholder="Asset" allowClear onSearch={onSearch} />
-      <p>Search for your assets</p>
+      <div className="assets__search">
+        <h1>Search:</h1>
+        <Search placeholder="Asset" allowClear onSearch={onSearch} />
+      </div>
       <div className="assets__cards">
         {returnSearch.map((asset) => {
           return (

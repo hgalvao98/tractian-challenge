@@ -1,9 +1,16 @@
 .assets {
   &__content {
     margin: 24px 100px 0px;
+    gap: 60px;
 
     @media (max-width: 990px) {
       margin: 24px 50px 0px;
+    }
+  }
+
+  &__search {
+    h1 {
+      font-size: 22px !important;
     }
   }
 
