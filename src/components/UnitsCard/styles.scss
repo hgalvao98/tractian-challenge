@@ -16,6 +16,13 @@
     max-width: 90%;
   }
 
+  &__users {
+    display: flex;
+    overflow: scroll;
+    max-height: 300px;
+    gap: 10px;
+  }
+
   &__assets {
     max-height: 300px;
     display: flex;
