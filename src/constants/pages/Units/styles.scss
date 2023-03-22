@@ -1,0 +1,29 @@
+.unit {
+  margin: 24px 100px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+
+  @media (max-width: 990px) {
+    margin: 24px 0;
+  }
+
+  &__search {
+    width: 100%;
+  }
+}
+
+.units-card {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 100px;
+
+  @media (max-width: 990px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

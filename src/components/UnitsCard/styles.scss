@@ -1,0 +1,40 @@
+.unit-card {
+  height: fit-content;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  //   max-width: 60%;
+
+  &__name {
+    align-self: center;
+    font-size: 30px;
+  }
+
+  @media (max-width: 990px) {
+    max-width: 90%;
+  }
+
+  &__assets {
+    max-height: 300px;
+    display: flex;
+    overflow: scroll;
+    gap: 10px;
+    overflow-y: hidden;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    a,
+    h2 {
+      color: black;
+      margin: unset;
+    }
+  }
+}
