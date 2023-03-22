@@ -58,6 +58,7 @@ export const Users = () => {
   return (
     <div className="user">
       <div className="user__search">
+        <h1>Search:</h1>
         <Search
           addonBefore={selectBefore}
           placeholder="Users"
