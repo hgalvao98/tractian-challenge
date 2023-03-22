@@ -4,7 +4,7 @@ import { AssetCard } from "../AssetCard";
 import "./styles.scss";
 
 export const UnitsCard = ({ unit, assets }) => {
-  const getAssetsPerUnit = assets.filter((asset) => asset.unitId === unit.id);
+  const getAssetsPerUnit = assets?.filter((asset) => asset.unitId === unit.id);
 
   return (
     <div className="unit-card" key={unit?.id}>
@@ -16,19 +16,11 @@ export const UnitsCard = ({ unit, assets }) => {
         <Link to={"/assets"}>Go to assets ></Link>
       </div>
       <div className="unit-card__assets">
-        {getAssetsPerUnit.map((asset) => {
+        {getAssetsPerUnit?.map((asset) => {
           return <AssetCard assetData={asset} />;
         })}
       </div>
       <h2>Users</h2>
-
-      {/* //Icon - Unit Name
-            Assets in 'unitname'
-            show asset cards
-
-            Users in 'unitname'
-            show users card  (soon)
-            // */}
     </div>
   );
 };

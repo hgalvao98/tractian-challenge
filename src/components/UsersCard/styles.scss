@@ -1,0 +1,11 @@
+.user-card {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+
+  &__image {
+    max-width: fit-content;
+  }
+}
