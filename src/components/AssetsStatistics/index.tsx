@@ -10,10 +10,11 @@ export const AssetsStatistics = ({ colorBgContainer }) => {
 
     const { assets } = useShallowEqualSelector((state) => {
         return ({
-            //fix this reducer/saga problem
-            assets: state.assets.data,
+            assets: state.assets.allAssetsData,
         })
     })
+
+    console.log(assets)
 
     const assetsInOperation = assets && assets.filter((item) => item.status === 'inOperation')
     const assetsInDowntime = assets && assets.filter((item) => item.status === 'inDowntime')
