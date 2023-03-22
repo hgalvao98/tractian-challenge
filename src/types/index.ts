@@ -7,7 +7,7 @@ export interface Assets {
 }
 
 export interface Asset {
-    assetData: { name: any; status: any; image: any; healthscore: any; id: any; };
+    assetData: Asset
     assignedUserIds: number[];
     companyId: number;
     healthHistory: HealthHistory[];
