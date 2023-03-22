@@ -4,7 +4,7 @@ import NoImg from "../../assets/NoImg.jpg";
 import { User } from "../../types";
 import "./styles.scss";
 
-export const UsersCard = ({ user, units }) => {
+export const UsersCard = ({ user, units, isUnitsPage }) => {
   const [canEdit, setCanEdit] = useState(false);
   const [editedUser, setEditedUser] = useState<User>();
   const { name, email, unitId, id } = user;
@@ -14,13 +14,12 @@ export const UsersCard = ({ user, units }) => {
   );
 
   const onFinish = (values: any) => {
-    console.log(values);
     setEditedUser(values);
     setCanEdit(false);
   };
 
   return (
-    <div className="user-card" key={id}>
+    <div className="user-card">
       <div className="user-card__image">
         <Image preview={false} src={NoImg} />
       </div>
@@ -46,24 +45,30 @@ export const UsersCard = ({ user, units }) => {
           </Form>
         ) : (
           <div>
-            <h1>Name</h1>
+            <h3>Name</h3>
             <p>{editedUser?.name ? editedUser?.name : name}</p>
-            <h1>E-mail</h1>
-            <p>{editedUser?.email ? editedUser?.email : email}</p>
-            <h1>Unit ID</h1>
-            <p>{editedUser?.unitId ? editedUser?.unitId : unitId}</p>
-            {editedUser?.unitId && (
+            {isUnitsPage ?? (
               <div>
-                <h1>Assigned Unit</h1>
-                {getUnitAssigned.map((unit) => {
-                  return <p key={unit.id}>{unit.name}</p>;
-                })}
+                <h3>E-mail</h3>
+                <p>{editedUser?.email ? editedUser?.email : email}</p>
+                <h3>Unit ID</h3>
+                <p>{editedUser?.unitId ? editedUser?.unitId : unitId}</p>
+                {editedUser?.unitId && (
+                  <div>
+                    <h3>Assigned Unit</h3>
+                    {getUnitAssigned.map((unit) => {
+                      return <p key={unit.id}>{unit.name}</p>;
+                    })}
+                  </div>
+                )}
               </div>
             )}
           </div>
         )}
       </div>
-      <Button onClick={() => setCanEdit(!canEdit)}>Edit</Button>
+      {isUnitsPage ?? (
+        <Button onClick={() => setCanEdit(!canEdit)}>Edit</Button>
+      )}
     </div>
   );
 };
