@@ -8,7 +8,7 @@ import { menuItems } from "./utils/menuItems";
 export default function App() {
 
   const [menuItemActive, setMenuItemActive] = useState('')
-  const { Content, Sider } = Layout;
+  const { Sider } = Layout;
 
   const handleMenuChange = (e) => {
     setMenuItemActive(e.key);
