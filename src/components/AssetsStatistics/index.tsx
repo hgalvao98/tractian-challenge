@@ -1,4 +1,5 @@
 import { Progress } from "antd";
+import { Link } from "react-router-dom";
 import { useShallowEqualSelector } from "../../hooks";
 
 export const AssetsStatistics = ({ colorBgContainer }) => {
@@ -17,7 +18,10 @@ export const AssetsStatistics = ({ colorBgContainer }) => {
 
   return (
     <div className="home__statistics">
-      <h1>Assets' Statistics</h1>
+      <div className="home__statistics__title">
+        <h1>Assets' Statistics</h1>
+        <Link to={'/assets'}>Go to assets ></Link>
+      </div>
       <div className="home__statistics__cards">
         <div className="home__statistics__card">
           <Progress
