@@ -1,11 +1,8 @@
 import { Select } from "antd";
 import Search from "antd/es/input/Search";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { WorkorderCard } from "../../../components/WorkorderCard";
 import { useShallowEqualSelector } from "../../../hooks";
-import { getAllUsers } from "../../../modules/store/users/actions";
-import { getAllWork } from "../../../modules/store/workorders/actions";
 import { Workorder } from "../../../types";
 import "./styles.scss";
 
@@ -13,12 +10,10 @@ export const Workorders = () => {
   const [searchValue, setSearchValue] = useState("");
   const [filterBy, setFilterBy] = useState("");
 
-  const dispatch = useDispatch();
-
   const { workorders, users } = useShallowEqualSelector((state) => {
     return {
-      workorders: state.workorders.data,
-      users: state.users.data,
+      workorders: state.app.data.workorders,
+      users: state.app.data.users,
     };
   });
 
@@ -30,7 +25,7 @@ export const Workorders = () => {
     setFilterBy(e);
   };
 
-  const returnSearch = workorders.filter((search: Workorder) => {
+  const returnSearch = workorders?.filter((search: Workorder) => {
     switch (filterBy) {
       case "priority":
         return search.priority
@@ -51,11 +46,6 @@ export const Workorders = () => {
     </Select>
   );
 
-  useEffect(() => {
-    dispatch(getAllWork());
-    dispatch(getAllUsers());
-  }, []);
-
   return (
     <div className="workorder">
       <div className="workorder__search">
@@ -68,7 +58,7 @@ export const Workorders = () => {
         />
       </div>
       <div className="workorders-card">
-        {returnSearch.map((workorder: Workorder) => {
+        {returnSearch?.map((workorder: Workorder) => {
           return (
             <WorkorderCard
               key={workorder.title}

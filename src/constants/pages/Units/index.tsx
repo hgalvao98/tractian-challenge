@@ -1,35 +1,24 @@
 import Search from "antd/es/input/Search";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { UnitsCard } from "../../../components/UnitsCard";
 import { useShallowEqualSelector } from "../../../hooks";
-import { getAllAssets } from "../../../modules/store/assets/actions";
-import { getAllUnits } from "../../../modules/store/units/actions";
-import { getAllUsers } from "../../../modules/store/users/actions";
 import { Unit } from "../../../types";
 import "./styles.scss";
 
 export const Units = () => {
   const [searchValue, setSearchValue] = useState("");
-  const dispatch = useDispatch();
 
   const { units, assets, users } = useShallowEqualSelector((state) => {
     return {
-      assets: state.assets.allAssetsData,
-      units: state.units.data,
-      users: state.users.data,
+      assets: state.app.data.assets,
+      units: state.app.data.units,
+      users: state.app.data.users,
     };
   });
 
   const onSearch = (value: string) => setSearchValue(value);
 
-  useEffect(() => {
-    dispatch(getAllAssets());
-    dispatch(getAllUnits());
-    dispatch(getAllUsers());
-  }, []);
-
-  const returnSearch = units.filter((search: Unit) =>
+  const returnSearch = units?.filter((search: Unit) =>
     search.name.toLowerCase().includes(searchValue.toLowerCase())
   );
 

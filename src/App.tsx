@@ -1,11 +1,14 @@
 import { HeatMapOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import "./constants/pages/Home/styles.scss";
+import { dataFetchAll } from "./modules/store/app/actions";
 import RootRoutes from "./routes";
 import { menuItems } from "./utils/menuItems";
 
 export default function App() {
+  const dispatch = useDispatch();
   const [menuItemActive, setMenuItemActive] = useState("");
   const { Sider } = Layout;
 
@@ -19,6 +22,10 @@ export default function App() {
       window.location.replace("/");
     }
   };
+
+  useEffect(() => {
+    dispatch(dataFetchAll());
+  }, []);
 
   return (
     <Layout className="home" style={{ height: "100%" }}>

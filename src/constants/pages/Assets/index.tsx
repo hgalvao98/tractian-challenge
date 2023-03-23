@@ -1,11 +1,10 @@
 import { Layout } from "antd";
 import Search from "antd/es/input/Search";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AssetCard } from "../../../components/AssetCard";
 import { AssetModal } from "../../../components/AssetModal";
 import { useShallowEqualSelector } from "../../../hooks";
-import { getAllAssets } from "../../../modules/store/assets/actions";
 import { Asset } from "../../../types";
 import "./styles.scss";
 
@@ -17,19 +16,15 @@ const Assets = () => {
 
   const { allAssetsData } = useShallowEqualSelector((state) => {
     return {
-      allAssetsData: state.assets?.allAssetsData,
+      allAssetsData: state.app.data.assets,
     };
   });
 
-  const returnSearch = allAssetsData.filter((search: Asset) =>
+  const returnSearch = allAssetsData?.filter((search: Asset) =>
     search.name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   const onSearch = (value: string) => setSearchValue(value);
-
-  useEffect(() => {
-    dispatch(getAllAssets());
-  }, []);
 
   const handleModalIsOpen = (id) => {
     setAssetId(returnSearch.find((x) => x.id === id));
@@ -48,7 +43,7 @@ const Assets = () => {
         <Search placeholder="Asset" allowClear onSearch={onSearch} />
       </div>
       <div className="assets__cards">
-        {returnSearch.map((asset) => {
+        {returnSearch?.map((asset) => {
           return (
             <AssetCard
               onClick={() => handleModalIsOpen(asset.id)}
