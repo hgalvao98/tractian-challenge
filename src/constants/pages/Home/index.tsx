@@ -1,5 +1,6 @@
 import { Layout, theme } from "antd";
 import { Content } from "antd/es/layout/layout";
+import "../../../App.scss";
 import { AssetsGraph } from "../../../components/AssetsGraph";
 import { AssetsStatistics } from "../../../components/AssetsStatistics";
 import { GreetingModal } from "../../../components/GreetingModal";

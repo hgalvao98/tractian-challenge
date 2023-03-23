@@ -17,9 +17,9 @@
   }
 
   &__users {
-    display: flex;
-    overflow: scroll;
-    max-height: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+
     gap: 10px;
   }
 

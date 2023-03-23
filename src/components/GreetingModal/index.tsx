@@ -3,6 +3,7 @@ import { Button } from "antd";
 import Highcharts from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
 import { Link } from "react-router-dom";
+import "../../App.scss";
 import { useShallowEqualSelector } from "../../hooks";
 
 export const GreetingModal = ({ colorBgContainer }) => {
@@ -83,7 +84,7 @@ export const GreetingModal = ({ colorBgContainer }) => {
             {ordersInProgress?.length} workorder(s) in progress!
           </h1>
           <Link to={"/workorders"}>
-            <Button>
+            <Button className="default-button">
               SEE WORKORDERS <RightOutlined />
             </Button>
           </Link>
