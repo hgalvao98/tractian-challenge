@@ -8,15 +8,17 @@
     }
   }
 
-  &__search {
-    h1 {
-      font-size: 22px !important;
-    }
-  }
-
   &__cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 10px;
+  }
+}
+
+.asset {
+  &__search {
+    h1 {
+      font-size: 22px !important;
+    }
   }
 }

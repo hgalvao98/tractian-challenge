@@ -1,9 +1,9 @@
 import { Layout } from "antd";
-import Search from "antd/es/input/Search";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AssetCard } from "../../../components/AssetCard";
 import { AssetModal } from "../../../components/AssetModal";
+import { Searcher } from "../../../components/Searcher";
 import { useShallowEqualSelector } from "../../../hooks";
 import { Asset } from "../../../types";
 import "./styles.scss";
@@ -38,10 +38,12 @@ const Assets = () => {
 
   return (
     <Layout className="assets__content">
-      <div className="assets__search">
-        <h1>Search:</h1>
-        <Search placeholder="Asset" allowClear onSearch={onSearch} />
-      </div>
+      <Searcher
+        onSearch={onSearch}
+        className={"asset"}
+        placeholder={"Asset"}
+        selectBefore={null}
+      />
       <div className="assets__cards">
         {returnSearch?.map((asset) => {
           return (

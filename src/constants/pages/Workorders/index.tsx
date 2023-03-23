@@ -1,6 +1,6 @@
 import { Select } from "antd";
-import Search from "antd/es/input/Search";
 import { useState } from "react";
+import { Searcher } from "../../../components/Searcher";
 import { WorkorderCard } from "../../../components/WorkorderCard";
 import { useShallowEqualSelector } from "../../../hooks";
 import { Workorder } from "../../../types";
@@ -48,15 +48,12 @@ export const Workorders = () => {
 
   return (
     <div className="workorder">
-      <div className="workorder__search">
-        <h1>Search:</h1>
-        <Search
-          addonBefore={selectBefore}
-          placeholder="Workorders"
-          allowClear
-          onSearch={onSearch}
-        />
-      </div>
+      <Searcher
+        onSearch={onSearch}
+        className={"workorder"}
+        placeholder={"Workorders"}
+        selectBefore={selectBefore}
+      />
       <div className="workorders-card">
         {returnSearch?.map((workorder: Workorder) => {
           return (
