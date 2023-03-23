@@ -1,31 +1,7 @@
 import Highcharts from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
-import { useState } from "react";
-import { useShallowEqualSelector } from "../../hooks";
 
 export const AssetsGraph = () => {
-  const [getNames, setGetNames] = useState([]);
-  const { assets } = useShallowEqualSelector((state) => {
-    return {
-      assets: state.app.data.assets,
-    };
-  });
-
-  const parseStatus = (status) => {
-    switch (status) {
-      case "inOperation":
-        return 0;
-      case "plannedStop":
-        return 1;
-      case "inAlert":
-        return 2;
-      case "inDowntime":
-        return 3;
-      case "unplannedStop":
-        return 4;
-    }
-  };
-
   const options = {
     chart: {
       type: "line",
@@ -90,7 +66,6 @@ export const AssetsGraph = () => {
           [new Date("2022-12-29T00:00:00.000Z").getTime(), 0],
         ],
       },
-      ,
       {
         name: "Fan D21",
         data: [
@@ -101,7 +76,6 @@ export const AssetsGraph = () => {
           [new Date("2022-12-29T00:00:00.000Z").getTime(), 0],
         ],
       },
-      ,
       {
         name: "Fan D22",
         data: [
