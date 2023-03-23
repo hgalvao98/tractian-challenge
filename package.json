@@ -1,4 +1,5 @@
 {
+  "homepage": "http://{hgalvao98}.github.io/{tractian-challenge}",
   "name": "tractian-challenge",
   "private": true,
   "version": "0.0.0",
@@ -23,7 +24,8 @@
     "react-router-dom": "^6.9.0",
     "redux": "^4.2.1",
     "redux-saga": "^1.2.3",
-    "sass": "^1.59.3"
+    "sass": "^1.59.3",
+    "surge": "^0.23.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
