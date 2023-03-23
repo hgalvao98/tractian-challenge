@@ -1,5 +1,6 @@
 import { Layout, theme } from "antd";
 import { Content } from "antd/es/layout/layout";
+import { AssetsGraph } from "../../../components/AssetsGraph";
 import { AssetsStatistics } from "../../../components/AssetsStatistics";
 import { GreetingModal } from "../../../components/GreetingModal";
 import { UnitsHome } from "../../../components/UnitsHome";
@@ -19,6 +20,7 @@ const Home = () => {
           <AssetsStatistics colorBgContainer={colorBgContainer} />
           <UnitsHome />
         </div>
+        <AssetsGraph />
       </Content>
     </Layout>
   );
