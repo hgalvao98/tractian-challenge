@@ -17,7 +17,7 @@ const Home = () => {
         <GreetingModal colorBgContainer={colorBgContainer} />
         <div className="home__secondStep">
           <AssetsStatistics colorBgContainer={colorBgContainer} />
-          <UnitsHome colorBgContainer={colorBgContainer} />
+          <UnitsHome />
         </div>
       </Content>
     </Layout>

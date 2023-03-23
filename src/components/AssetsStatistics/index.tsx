@@ -1,15 +1,10 @@
 import { Progress } from "antd";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useShallowEqualSelector } from "../../hooks";
-import { getAllAssets } from "../../modules/store/assets/actions";
 
 export const AssetsStatistics = ({ colorBgContainer }) => {
-  const dispatch = useDispatch();
-
   const { assets } = useShallowEqualSelector((state) => {
     return {
-      assets: state.assets.allAssetsData,
+      assets: state.app.data.assets,
     };
   });
 
@@ -19,10 +14,6 @@ export const AssetsStatistics = ({ colorBgContainer }) => {
     assets && assets.filter((item) => item.status === "inDowntime");
   const assetsInAlert =
     assets && assets.filter((item) => item.status === "inAlert");
-
-  useEffect(() => {
-    dispatch(getAllAssets());
-  }, []);
 
   return (
     <div className="home__statistics">

@@ -1,22 +1,13 @@
 import { DeploymentUnitOutlined } from "@ant-design/icons";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useShallowEqualSelector } from "../../hooks";
-import { getAllUnits } from "../../modules/store/units/actions";
 import { Unit } from "../../types";
 
-export const UnitsHome = ({ colorBgContainer }) => {
-  const dispatch = useDispatch();
-
+export const UnitsHome = () => {
   const { units } = useShallowEqualSelector((state) => {
     return {
-      units: state.units.data,
+      units: state.app.data.units,
     };
   });
-
-  useEffect(() => {
-    dispatch(getAllUnits());
-  }, []);
 
   return (
     <div className="home__units">
