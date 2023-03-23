@@ -68,6 +68,7 @@ export interface User {
 }
 
 export interface Workorder {
+  workorder: Workorder;
   assetId: number;
   assignedUserIds: number[];
   checklist: Checklist[];
