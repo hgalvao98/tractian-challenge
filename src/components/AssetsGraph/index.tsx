@@ -1,10 +1,13 @@
 import Highcharts from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
+import "./styles.scss";
 
 export const AssetsGraph = () => {
   const options = {
     chart: {
+      marginRight: 100,
       type: "line",
+      backgroundColor: "rgba(0,0,0,0)",
     },
     title: {
       text: "Asset Status",
@@ -14,7 +17,7 @@ export const AssetsGraph = () => {
     },
     yAxis: {
       title: {
-        text: "Status",
+        text: null,
       },
       type: "category",
       categories: [
@@ -90,7 +93,7 @@ export const AssetsGraph = () => {
   };
 
   return (
-    <div>
+    <div className="asset-graph">
       <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );

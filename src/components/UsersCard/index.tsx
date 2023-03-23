@@ -1,5 +1,6 @@
 import { Button, Form, Image, Input } from "antd";
 import { useState } from "react";
+import "../../App.scss";
 import NoImg from "../../assets/NoImg.jpg";
 import { User } from "../../types";
 import "./styles.scss";
@@ -67,7 +68,9 @@ export const UsersCard = ({ user, units, isUnitsPage }) => {
         )}
       </div>
       {isUnitsPage ?? (
-        <Button onClick={() => setCanEdit(!canEdit)}>Edit</Button>
+        <Button className="default-button" onClick={() => setCanEdit(!canEdit)}>
+          {canEdit ? "Close" : "Edit"}
+        </Button>
       )}
     </div>
   );
