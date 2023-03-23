@@ -1,6 +1,6 @@
 import { Select } from "antd";
-import Search from "antd/es/input/Search";
 import { useState } from "react";
+import { Searcher } from "../../../components/Searcher";
 import { UsersCard } from "../../../components/UsersCard";
 import { useShallowEqualSelector } from "../../../hooks";
 import { User } from "../../../types";
@@ -46,15 +46,12 @@ export const Users = () => {
 
   return (
     <div className="user">
-      <div className="user__search">
-        <h1>Search:</h1>
-        <Search
-          addonBefore={selectBefore}
-          placeholder="Users"
-          allowClear
-          onSearch={onSearch}
-        />
-      </div>
+      <Searcher
+        onSearch={onSearch}
+        className={"user"}
+        placeholder={"Users"}
+        selectBefore={selectBefore}
+      />
       <div className="users-card">
         {returnSearch?.map((user: User) => {
           return <UsersCard key={user.id} user={user} units={units} />;

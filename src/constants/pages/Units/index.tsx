@@ -1,5 +1,5 @@
-import Search from "antd/es/input/Search";
 import { useState } from "react";
+import { Searcher } from "../../../components/Searcher";
 import { UnitsCard } from "../../../components/UnitsCard";
 import { useShallowEqualSelector } from "../../../hooks";
 import { Unit } from "../../../types";
@@ -24,10 +24,12 @@ export const Units = () => {
 
   return (
     <div className="unit">
-      <div className="unit__search">
-        <h1>Search:</h1>
-        <Search placeholder="Units" allowClear onSearch={onSearch} />
-      </div>
+      <Searcher
+        onSearch={onSearch}
+        className={"unit"}
+        placeholder={"Units"}
+        selectBefore={null}
+      />
       <div className="units-card">
         {returnSearch?.map((unit: Unit) => {
           return (
