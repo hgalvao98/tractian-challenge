@@ -4,6 +4,20 @@ To view this code working in your browser please follow the link:
 
 ### [https://tractian-challenge-hg.surge.sh](https://tractian-challenge-hg.surge.sh)
 
+## Tech Used
+
+- ReactJs
+- Redux 
+- TypeScript
+- Sass
+- Axios
+- Highcharts
+- React-Router-Dom
+- Ant Design
+- React Hooks
+- [Notion](https://www.notion.so/9b1b93fc532d4cf9aa436677c2a20ff4?v=1305e13611034a01be18123134e503ba)
+
+
 ## Installation
 
 After cloning this repo, please run `npm install`
