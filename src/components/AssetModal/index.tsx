@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import ReactLoading from "react-loading";
 import { useDispatch, useSelector } from "react-redux";
 import { getAsset } from "../../modules/store/assets/actions";
-import { Asset } from "../../types";
+import { Assets } from "../../types";
 import "./styles.scss";
 
 export const AssetModal = ({ onClick, assetId }) => {
@@ -14,7 +14,7 @@ export const AssetModal = ({ onClick, assetId }) => {
     dispatch(getAsset(assetId.id));
   }, [assetId.id]);
 
-  const assetState: Asset = useSelector((state) => state?.assets?.assetData);
+  const assetState = useSelector((state: Assets) => state?.assets?.assetData);
 
   const {
     id,
@@ -27,7 +27,6 @@ export const AssetModal = ({ onClick, assetId }) => {
     assignedUserIds,
     model,
     specifications,
-    metrics,
   } = assetState;
 
   const waitAsset = assetId.id === id;
@@ -65,39 +64,19 @@ export const AssetModal = ({ onClick, assetId }) => {
                 <Input placeholder={status} />
               </Form.Item>
               <Form.Item label="Healthscore" name="healthscore">
-                <Input placeholder={healthscore} />
+                <Input type="number" placeholder={healthscore?.toString()} />
               </Form.Item>
-              <h3>Metrics</h3>
-              <Form.Item label="Last Uptime" name="specifications.maxTemp">
-                <Input disabled placeholder={metrics?.lastUptimeAt} />
-              </Form.Item>
-              <Form.Item label="Total Collects Uptime" name="metrics.power">
-                <Input disabled placeholder={metrics?.totalCollectsUptime} />
-              </Form.Item>
-              <Form.Item label="Total Uptime" name="metrics.rpm">
-                <Input disabled placeholder={metrics?.totalUptime} />
-              </Form.Item>
-            </div>
-            <div className="asset-moda__form-column">
               <Form.Item label="Sensor" name="sensors">
-                <Input placeholder={sensors} />
+                <Input type="number" placeholder={sensors?.toString()} />
               </Form.Item>
               <Form.Item label="Model" name="model">
                 <Input placeholder={model} />
               </Form.Item>
               <Form.Item label="Unit ID" name="unitId">
-                <Input placeholder={unitId} />
+                <Input placeholder={unitId?.toString()} />
               </Form.Item>
-              <h3>Specifications</h3>
-              <Form.Item label="Max Temperature" name="specifications.maxTemp">
-                <Input disabled placeholder={specifications?.maxTemp} />
-              </Form.Item>
-              <Form.Item label="Power" name="specifications.power">
-                <Input disabled placeholder={specifications.power} />
-              </Form.Item>
-              <Form.Item label="RPM" name="specifications.rpm">
-                <Input disabled placeholder={specifications.rpm} />
-              </Form.Item>
+            </div>
+            <div className="asset-moda__form-column">
               <Form.Item label="Assign Users" name="assignedUserIds">
                 {assignedUserIds.map((user) => {
                   return (
@@ -109,6 +88,22 @@ export const AssetModal = ({ onClick, assetId }) => {
                 {availableUsersId.map((user) => {
                   return <Checkbox key={user}>{user}</Checkbox>;
                 })}
+              </Form.Item>
+              <h3>Specifications</h3>
+              <Form.Item label="Max Temperature" name="specifications.maxTemp">
+                <Input
+                  disabled
+                  placeholder={specifications?.maxTemp?.toString()}
+                />
+              </Form.Item>
+              <Form.Item label="Power" name="specifications.power">
+                <Input
+                  disabled
+                  placeholder={specifications?.power?.toString()}
+                />
+              </Form.Item>
+              <Form.Item label="RPM" name="specifications.rpm">
+                <Input disabled placeholder={specifications?.rpm?.toString()} />
               </Form.Item>
               <Button
                 className="asset-modal__button"

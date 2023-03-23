@@ -8,13 +8,13 @@ import { useShallowEqualSelector } from "../../../hooks";
 import { Asset } from "../../../types";
 import "./styles.scss";
 
-const Assets = () => {
+const AssetsPage = () => {
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("");
-  const [assetId, setAssetId] = useState();
+  const [assetId, setAssetId] = useState({});
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const { allAssetsData } = useShallowEqualSelector((state) => {
+  const { allAssetsData } = useShallowEqualSelector((state: Asset) => {
     return {
       allAssetsData: state.app.data.assets,
     };
@@ -26,8 +26,8 @@ const Assets = () => {
 
   const onSearch = (value: string) => setSearchValue(value);
 
-  const handleModalIsOpen = (id) => {
-    setAssetId(returnSearch.find((x) => x.id === id));
+  const handleModalIsOpen = (id: number) => {
+    setAssetId(returnSearch.find((x: Asset) => x.id === id));
     setModalIsOpen(true);
   };
 
@@ -45,11 +45,10 @@ const Assets = () => {
         selectBefore={null}
       />
       <div className="assets__cards">
-        {returnSearch?.map((asset) => {
+        {returnSearch?.map((asset: Asset) => {
           return (
             <AssetCard
               onClick={() => handleModalIsOpen(asset.id)}
-              modalIsOpen={modalIsOpen}
               setModalIsOpen={setModalIsOpen}
               key={asset.id}
               assetData={asset}
@@ -58,14 +57,10 @@ const Assets = () => {
         })}
       </div>
       {modalIsOpen && (
-        <AssetModal
-          onClick={handleModalClose}
-          setAssetId={setAssetId}
-          assetId={assetId}
-        />
+        <AssetModal onClick={handleModalClose} assetId={assetId} />
       )}
     </Layout>
   );
 };
 
-export default Assets;
+export default AssetsPage;

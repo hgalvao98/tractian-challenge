@@ -1,3 +1,4 @@
+import { RightOutlined } from "@ant-design/icons";
 import { Progress } from "antd";
 import { Link } from "react-router-dom";
 import { useShallowEqualSelector } from "../../hooks";
@@ -20,7 +21,9 @@ export const AssetsStatistics = ({ colorBgContainer }) => {
     <div className="home__statistics">
       <div className="home__statistics__title">
         <h1>Assets' Statistics</h1>
-        <Link to={'/assets'}>Go to assets ></Link>
+        <Link to={"/assets"}>
+          Go to assets <RightOutlined />
+        </Link>
       </div>
       <div className="home__statistics__cards">
         <div className="home__statistics__card">
@@ -28,10 +31,9 @@ export const AssetsStatistics = ({ colorBgContainer }) => {
             size={100}
             strokeColor="#52C41A"
             type="circle"
-            percent={(
-              (assetsInOperation?.length / assets?.length) *
-              100
-            ).toFixed()}
+            percent={Number(
+              ((assetsInOperation?.length / assets?.length) * 100).toFixed()
+            )}
           />
           <p>In Operation</p>
         </div>
@@ -40,10 +42,9 @@ export const AssetsStatistics = ({ colorBgContainer }) => {
             size={100}
             strokeColor="#F7C800"
             type="circle"
-            percent={(
-              (assetsInDowntime?.length / assets?.length) *
-              100
-            ).toFixed()}
+            percent={Number(
+              ((assetsInDowntime?.length / assets?.length) * 100).toFixed()
+            )}
           />
           <p>In Downtime</p>
         </div>
@@ -52,7 +53,9 @@ export const AssetsStatistics = ({ colorBgContainer }) => {
             size={100}
             strokeColor="#FF4D4F"
             type="circle"
-            percent={((assetsInAlert?.length / assets?.length) * 100).toFixed()}
+            percent={Number(
+              ((assetsInAlert?.length / assets?.length) * 100).toFixed()
+            )}
           />
           <p>In Alert</p>
         </div>

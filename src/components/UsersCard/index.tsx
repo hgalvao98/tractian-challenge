@@ -5,7 +5,13 @@ import NoImg from "../../assets/NoImg.jpg";
 import { User } from "../../types";
 import "./styles.scss";
 
-export const UsersCard = ({ user, units, isUnitsPage }) => {
+interface UsersCardProps {
+  user?: User;
+  units?: Array<any>;
+  isUnitsPage?: boolean;
+}
+
+export const UsersCard = ({ user, units, isUnitsPage }: UsersCardProps) => {
   const [canEdit, setCanEdit] = useState(false);
   const [editedUser, setEditedUser] = useState<User>();
   const { name, email, unitId, id } = user;
@@ -34,7 +40,7 @@ export const UsersCard = ({ user, units, isUnitsPage }) => {
               <Input placeholder={email} />
             </Form.Item>
             <Form.Item name="unitId" label="Assign Unit">
-              <Input type="number" placeholder={unitId} />
+              <Input type="number" placeholder={unitId?.toString()} />
             </Form.Item>
             <Button
               className="asset-modal__button"

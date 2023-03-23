@@ -4,9 +4,8 @@ import {
   UnorderedListOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { MenuItem } from "../types";
 
-export const menuItems: MenuItem[] = [
+export const menuItems = [
   {
     label: "Assets",
     key: "Assets",
