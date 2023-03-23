@@ -2,6 +2,7 @@ import { RightOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import Highcharts from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
+import { Link } from "react-router-dom";
 import { useShallowEqualSelector } from "../../hooks";
 
 export const GreetingModal = ({ colorBgContainer }) => {
@@ -81,9 +82,11 @@ export const GreetingModal = ({ colorBgContainer }) => {
             You have {ordersCompleted?.length} workorder(s) completed and{" "}
             {ordersInProgress?.length} workorder(s) in progress!
           </h1>
-          <Button>
-            SEE WORKORDERS <RightOutlined />
-          </Button>
+          <Link to={"/workorders"}>
+            <Button>
+              SEE WORKORDERS <RightOutlined />
+            </Button>
+          </Link>
         </div>
         <div className="home__greetings__main__chart">
           <HighchartsReact highcharts={Highcharts} options={chart1} />
