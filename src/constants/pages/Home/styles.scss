@@ -3,12 +3,12 @@
   height: 100%;
 
   &__content {
-    margin: 24px 100px 0px;
+    margin: 24px 100px 50px;
   }
 
   @media (max-width: 870px) {
     &__content {
-      margin: 24px 10px 0px;
+      margin: 24px 10px 50px;
     }
   }
 
