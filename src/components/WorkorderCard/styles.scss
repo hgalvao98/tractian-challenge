@@ -1,0 +1,15 @@
+.workorder-card {
+  background-color: #fff;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+
+  p:not(:first-of-type) {
+    text-transform: capitalize;
+  }
+}
+
+.ant-checkbox-wrapper + .ant-checkbox-wrapper {
+  margin: unset;
+}
