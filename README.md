@@ -4,6 +4,8 @@ To view this code working in your browser please follow the link:
 
 ### [https://tractian-challenge-hg.surge.sh](https://tractian-challenge-hg.surge.sh)
 
+If you would like to see a video demonstration of the app and its features, please click [here](https://drive.google.com/file/d/1xdrHzvzIbItjYOtMaiiwOuQOFN8oSi_l/view?usp=sharing)
+
 ## Tech Used
 
 - ReactJs
